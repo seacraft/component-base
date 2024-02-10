@@ -20,14 +20,14 @@ test:
 goimports.verify:
 ifeq (,$(shell which goimports 2>/dev/null))
 	@echo "===========> Installing goimports"
-	@$(GO) install golang.org/x/tools/cmd/goimports
+	@$(GO) install golang.org/x/tools/cmd/goimports@v0.17.0
 endif
 
 .PHONY: golines.verify
 golines.verify:
 ifeq (,$(shell which golines 2>/dev/null))
 	@echo "===========> Installing golines"
-	@$(GO) install github.com/segmentio/golines
+	@$(GO) install github.com/segmentio/golines@v0.12.2
 endif
 
 ## format: Format the package with `gofmt`
@@ -42,7 +42,7 @@ format: golines.verify goimports.verify
 lint.verify:
 ifeq (,$(shell which golangci-lint 2>/dev/null))
 	@echo "===========> Installing golangci lint"
-	@$(GO) install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.0
+	@$(GO) install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.1
 endif
 
 
@@ -54,27 +54,26 @@ lint: lint.verify
 
 .PHONY: copyright.verify
 copyright.verify:
-ifeq (,$(shell which addlicense 2>/dev/null))
-	@echo "===========> Installing addlicense"
-	@$(GO) install  github.com/seacraft/addlicense
+ifeq (,$(shell which licctl 2>/dev/null))
+	@echo "===========> Installing licctl"
+	@$(GO) install  github.com/seacraft/licctl@latest
 endif
 
 ## verify-copyright: Verify the boilerplate headers for all files.
 .PHONY: verify-copyright
 verify-copyright: copyright.verify
 	@echo "===========> Verifying the boilerplate headers for all files"
-	@addlicense --check -f $(ROOT_DIR)/boilerplate.txt $(ROOT_DIR) --skip-dirs=third_party
-
+	@licctl --check -f $(ROOT_DIR)/boilerplate.txt $(ROOT_DIR) --skip-dirs=third_party
 ## add-copyright: Ensures source code files have copyright license headers.
 .PHONY: add-copyright
 add-copyright: copyright.verify
-	@addlicense -v -f $(ROOT_DIR)/boilerplate.txt $(ROOT_DIR) --skip-dirs=third_party
+	@licctl -v -f $(ROOT_DIR)/boilerplate.txt $(ROOT_DIR) --skip-dirs=third_party
 
 .PHONY: updates.verify
 updates.verify:
 ifeq (,$(shell which go-mod-outdated 2>/dev/null))
 	@echo "===========> Installing go-mod-outdated"
-	@$(GO) install github.com/psampaz/go-mod-outdated
+	@$(GO) install github.com/psampaz/go-mod-outdated@v0.9.0
 endif
 
 ## check-updates: Check outdated dependencies of the go projects.

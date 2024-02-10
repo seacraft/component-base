@@ -504,7 +504,7 @@ linters:
   enable:
     - megacheck
     - bodyclose
-    - deadcode
+#    - deadcode
     - depguard
     - dogsled
     - dupl
@@ -516,7 +516,7 @@ linters:
     - gocyclo
     - gofmt
     - goimports
-    - golint
+#    - golint
     - importas
     - wastedassign
     - nilerr
@@ -530,15 +530,15 @@ linters:
     - nakedret
     - nolintlint
     - rowserrcheck
-    - scopelint
+#    - scopelint
     - staticcheck
-    - structcheck
+#    - structcheck
     - stylecheck
     - typecheck
     - unconvert
     - unparam
     - unused
-    - varcheck
+#    - varcheck
     - whitespace
     - asciicheck
     - gocognit
@@ -549,7 +549,7 @@ linters:
     - gomodguard
     - exhaustive
     - revive
-    - ifshort
+#    - ifshort
     - forbidigo
     - makezero
     - thelper
@@ -558,7 +558,7 @@ linters:
     - durationcheck
     - paralleltest
     - errorlint
-    - exhaustivestruct
+#    - exhaustivestruct
     - exportloopref
     - gci
     - gofumpt
