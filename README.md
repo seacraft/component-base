@@ -5,3 +5,5 @@
 [![release](https://img.shields.io/github/release-pre/seacraft/component-base.svg)](https://github.com/seacraft/component-base/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/seacraft/component-base/blob/main/LICENSE)
 [![Releases](https://img.shields.io/github/downloads/seacraft/component-base/total.svg)](https://github.com/seacraft/component-base/releases)
+
+Scheme, typing, encoding, decoding, and conversion packages for seacraft and seacraft-like API objects.
