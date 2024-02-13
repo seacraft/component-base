@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // Package verflag defines utility functions to handle command line flags
-// related to version of IAM.
+// related to version of seacraft.
 package verflag
 
 import (
